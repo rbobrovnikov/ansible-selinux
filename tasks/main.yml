@@ -1,0 +1,10 @@
+---
+ 
+ - name: install required packages
+   yum: name={{ item }} state=present
+   with_items:
+   - libsemanage-python
+   - libselinux-python
+
+ - name: selinux manage 
+   selinux: policy={{ sel_policy }} state={{ sel_state }}
